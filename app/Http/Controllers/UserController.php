@@ -19,9 +19,9 @@ class UserController
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request): \Illuminate\View\View
     {
-        $data = $this->userService->facadeService([]);
+        $data = $this->userService->read($request->all());
         return view('users.index', $data);
     }
 }

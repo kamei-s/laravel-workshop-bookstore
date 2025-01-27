@@ -20,9 +20,21 @@ class ComicController
      * @param int $userId
      * @return \Illuminate\View\View
      */
-    public function index($userId)
+    public function index(Request $request, $user): \Illuminate\View\View
     {
-        $data = $this->comicService->facadeService(['user_id' => $userId]);
+        $data = $this->comicService->read(['user_id' => $user]);
+        return view('comics.index', $data);
+    }
+
+    /**
+     * ユーザーごとのコミック一覧を表示
+     *
+     * @param int $userId
+     * @return \Illuminate\View\View
+     */
+    public function store(Request $request): \Illuminate\View\View
+    {
+        $data = $this->comicService->read($request->all());
         return view('comics.index', $data);
     }
 }

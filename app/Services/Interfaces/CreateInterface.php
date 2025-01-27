@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Interfaces;
 
-interface ServiceInterface
+interface CreateInterface
 {
     /**
      * サービスのファサードメソッド
@@ -10,5 +10,5 @@ interface ServiceInterface
      * @param array $params
      * @return array
      */
-    public function facadeService(array $params): array;
+    public function create(array $params): array;
 }
